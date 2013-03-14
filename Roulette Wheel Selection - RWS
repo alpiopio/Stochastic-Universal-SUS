@@ -29,7 +29,7 @@ if($c == 0){
 	$c = 0.1;
 }
 echo "<br><b>random r = ".$c."</b><br>";
-$probabilitasx = 0;
+
 $array_length = count($array_probabilitas);
 
 for ($i=0;$i<$array_length - 1;$i++){
