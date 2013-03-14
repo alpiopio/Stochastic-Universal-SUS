@@ -1,0 +1,44 @@
+<?php
+for ($i=0;$i<6;$i++){
+  $cromosom[] = mt_rand(0,15);
+}
+$i = 1;
+echo "<b>cromosom = ".implode(',',$cromosom)."</b><br>";
+foreach($cromosom as $fitness){
+	$final_fitness = (15*$fitness)-pow($fitness,2);
+	$array_fitness[] = (15*$fitness)-pow($fitness,2);
+	echo "<br>fitness cromosom ".$i++." = f(".$fitness.")=((15*".$fitness.")-(".$fitness."*".$fitness.")) = ".$final_fitness;
+}
+$total_fitness = array_sum($array_fitness);
+echo "<br><b>total fitness = ".$total_fitness."</b><br>";
+$x = 1;
+foreach($array_fitness as $fitness){
+	$probabilitas = $fitness/$total_fitness;
+	$array_probabilitas[] = $fitness/$total_fitness;
+	echo "<br>probabilitas cromosom ".$x++." =".round($probabilitas,2);
+}
+$total_probabilitas = array_sum($array_probabilitas);
+echo "<br><b>total probailitas = ".$total_probabilitas."</b>";
+$n = 2;
+echo "<br><br><b>jumlah cromosom yang dipilih = ".$n."</b>";
+$r = $total_probabilitas/$n;
+echo "<br>range r = 0 - ".$r;
+$temp = $r*10;
+$c = rand(0,$temp) / 10;
+if($c == 0){
+	$c = 0.1;
+}
+echo "<br><b>random r = ".$c."</b><br>";
+$probabilitasx = 0;
+$array_length = count($array_probabilitas);
+
+for ($i=0;$i<$array_length;$i++){
+	$probabilitasx += $array_probabilitas[$i];
+	echo "<br>sum = ".round($probabilitasx,2);
+	while ($probabilitasx >= $c){
+	$index = $i + 1;
+	$c = $c + $r;
+	echo "<br><b>index ke = ".$index." dengan probabilitas = ".round($array_probabilitas[$i],2)." dan fitness = ".$array_fitness[$i]."</b>";
+	}
+}
+?>
