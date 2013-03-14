@@ -36,6 +36,9 @@ for ($i=0;$i<$array_length - 1;$i++){
 	if($c <= $array_probabilitas[$i]){
 		echo "<br>Roulette Wheel Selection = ".round($array_probabilitas[$i],2)." pada index ke = ".($i + 1);
 		return false;
+	}else{
+		echo "<br>tidak ada individu yang sesuai !";
+		return false;
 	}
 }
 
