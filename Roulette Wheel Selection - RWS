@@ -23,7 +23,7 @@ echo "<br><b>total probailitas = ".$total_probabilitas."</b>";
 $r = 1;
 echo "<br><br>range r = 0 - ".$r;
 $temp = $r*10;
-$c = 1;
+$c = rand(0,$temp) / 10;
 
 if($c == 0){
 	$c = 0.1;
