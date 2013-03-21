@@ -28,6 +28,7 @@ $c = rand(0,$temp) / 10;
 if($c == 0){
 	$c = 0.1;
 }
+
 echo "<br><b>random r = ".$c."</b><br>";
 $probabilitasx = 0;
 $array_length = count($array_probabilitas);
@@ -35,7 +36,7 @@ $array_length = count($array_probabilitas);
 for ($i=0;$i<$array_length;$i++){
 	$probabilitasx += $array_probabilitas[$i];
 	echo "<br>sum = ".round($probabilitasx,2);
-	while ($probabilitasx >= $c){
+	while (round($probabilitasx,2) >= $c){
 	$index = $i + 1;
 	$c = $c + $r;
 	echo "<br><b>index ke = ".$index." dengan probabilitas = ".round($array_probabilitas[$i],2)." dan fitness = ".$array_fitness[$i]."</b>";
