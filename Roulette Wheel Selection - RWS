@@ -23,7 +23,7 @@ echo "<br><b>total probailitas = ".$total_probabilitas."</b>";
 $r = 1;
 echo "<br><br>range r = 0 - ".$r;
 $temp = $r*10;
-$c = rand(0,$temp) / 10;
+$c = 1;
 
 if($c == 0){
 	$c = 0.1;
@@ -33,14 +33,14 @@ $probabilitasx = 0;
 $array_length = count($array_probabilitas);
 
 $individuterpilih = null;
-for ($i=0;$i<$array_length - 1;$i++){
-	if($c <= $array_probabilitas[$i]){
-		$individuterpilih = round($array_probabilitas[$i],2);
-		echo "<br>Roulette Wheel Selection = ".$individuterpilih." pada index ke = ".($i + 1);
-		return false;
+for ($i=0;$i<$array_length;$i++){
+	$probabilitasx += $array_probabilitas[$i];
+	echo "<br>perbandingan = ".round($probabilitasx,2)." : ".$c;
+	if (round($probabilitasx,2) >= $c){
+	$index = $i + 1;
+	
+	echo "<br><b>index ke = ".$index." dengan probabilitas = ".round($array_probabilitas[$i],2)." dan fitness = ".$array_fitness[$i]."</b>";
+	return false;
 	}
-}
-if(!$individuterpilih){
-	echo "<br>Tidak ada individu yang sesuai !";
 }
 ?>
